@@ -1,0 +1,22 @@
+.fixed {
+    position: fixed;
+    height: 25px;
+    width: 25px;
+}
+
+.relative {
+
+}
+
+.absolute {
+
+} 
+
+.bodywidth {
+    position: absolute;
+    height: 5
+    width: 90%;
+    padding-left: 25px;
+
+
+}

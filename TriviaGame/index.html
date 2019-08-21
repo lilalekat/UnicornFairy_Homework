@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>90s Trivia Game</title>
+    <!--CSS Bootstrap Reference Link-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--Reset.CSS and Style.CSS Stylesheet References-->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--Fonts Styles Reference-->
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans|Monoton&display=swap" rel="stylesheet">
+    <!--Icon in Tab Reference-->
+    <link rel="icon" href="https://www.freeiconspng.com/uploads/tv-icon-23.png">
+
+</head>
+
+<body>
+    <div class="quizHeadline">
+        <div style="background:transparent !important" class=jumbotron jumbotron-fluid>
+            <h1 class="text-center">
+                <strong>90s TV Shows Trivia Game</strong>
+            </h1>
+            <hr>
+
+            <div>
+                <div id="howToPlay" class="text-justify">
+                    <p class="text-center"><strong>HOW TO PLAY</strong></p>
+                    <p>You have 60 seconds to answer 10 multiple-choice, trivia questions that are related to popular
+                        90s TV Shows! Once you are finished selecting your answers, please then press the 'Submit'
+                        button and you will then see a tally of how many questions you answered correctly, those you
+                        answered incorrectly, and those that you were so bombed out on that you couldn't even answer! 🤪
+                    </p>
+                    <p class="text-center">The more that you answer correctly, the higher your score!</p>
+                    <p class="text-center">Good Luck and play as many times as you would like!🙌</p><br>
+                </div>
+            </div>
+        </div>
+
+        <div id="startQuizButton" class="text-center">
+            <button type="button" class="btn btn-info">Start Quiz!</button>
+        </div>
+
+        <div id="countDown">
+            <h3>Time Remaining</h3><span id="timer">60</span>
+        </div>
+    </div>
+    
+    <!-- <div class="hidden" id="quizResults">
+        <h2>Results</h2>
+        <p id="correctAnswers"></p>
+        <p id="incorrectAnswers"></p>
+        <p id="unAnswered"></p>
+    </div> -->
+    <div>
+    <div id="quizQuestions" class="card">
+    </div>
+    </div>
+    </div>
+    </div>
+    <div id="submitQuizButton" class="text-center">
+        <button type="button" class="btn btn-info">Submit!</button>
+    </div>
+    <!--JQuery Refernece Link-->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Javascript Reference Tag -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+
+</html>

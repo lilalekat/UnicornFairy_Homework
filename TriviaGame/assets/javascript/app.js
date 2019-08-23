@@ -1,32 +1,3 @@
-
-
-//Begin of Start Quiz on Click of the Start Button//
-$("#startQuizButton").on("click", function () {
-    //Removes Start Button After Quiz Has Began//
-    $("#startQuizButton").remove();
-    // //Declaration of Variables for Timer, If/Else, ForLoop
-    var time = 60
-    var x = setInterval(function () {
-        time = time - 1;
-        $("#timer").text(time);
-        if (time === 0) {
-            clearInterval(x)
-            time = 60
-        }
-    }, 1000);
-    for (var i = 0; i < triviaQuestions.length; i++) {
-        var questionP = $("<p>");
-        questionP.text(triviaQuestions[i].question);
-        $("#quizQuestions").append(questionP)
-        for (var j = 0; j < triviaQuestions[i].answerChoices.length; j++) {
-            $("#quizQuestions").append("<input type='radio' name='question-" + i + "' value='" + triviaQuestions[i].answerChoices[j] + "''>" + triviaQuestions[i].answerChoices[j]);
-
-        }
-
-    }
-
-});
-
 //Trivia Questins, Answers, and Correct Answers//
 var triviaQuestions = [
     {
@@ -80,119 +51,150 @@ var triviaQuestions = [
         correctAnswer: "Seinfeld"
     },
 ];
-//Countdown function that callsback the gameCountdown function, when timer reaches 0//
-var triviaGame ={
-    correct: 0,
-    incorrect: 0,
-    counter: 60,
 
-    gameCountdown: function() {
-        triviaGame.counter--;
-        $("#timer").html(triviaGame.counter);
-        if (triviaGame.counter === 0) {
-            console.log("No More Tick Tock");
-            triviaGame.done();
+//Quiz Begins on Click of the Start Button, this includes functions for removing the Start button, once it has been clicked, and starting the 60 second timer countdown//
+$("#startQuizButton").on("click", function () {
+    //Removes Start Button After Quiz Has Began//
+    $("#startQuizButton").remove();
+    console.log("Trivia Game Has Begun");
+
+//Declaration of Variables for the Timer//
+    var time = 60
+    var x = setInterval(function () {
+        time = time - 1;
+        $("#timer").text(time);
+        if (time === 0) {
+            clearInterval(x)
+            time = 60
+        }
+    }, 1000);
+
+    //For Loop that appends Questions and Answer Choices to Radio Buttons//
+    for (var i = 0; i < triviaQuestions.length; i++) {
+        var questionP = $("<p>");
+        questionP.text(triviaQuestions[i].question);
+        $("#quizQuestions").append(questionP)
+        for (var j = 0; j < triviaQuestions[i].answerChoices.length; j++) {
+            $("#quizQuestions").append("<input type='radio' name='question-" + i + "' value='" + triviaQuestions[i].answerChoices[j] + "''>" + triviaQuestions[i].answerChoices[j]);
         }
     }
 
-}
+});
 
-//triviaGame.submit function, which tracks/tallies correct/incorrect answers for each question//
+
+//Countdown function that callsback the gameCountdown function, when timer reaches 0//
+// var quizResults = {
+//     correct: 0,
+//     incorrect: 0,
+//     counter: 60,
+
+//     // gameCountdown: function () {
+//     //     quizResults.counter--;
+//     //     $("#timer").html(triviaGame.counter);
+//     //     if (triviaGame.counter === 0) {
+//     //         console.log("No More Tick Tock");
+//     //         triviaGame.done();
+//     //     }
+//     // }
+
+// }
+
+//For Each statements that track/tallies correct/incorrect answers for each question//
 $.each($("input[name='question-0']:checked"), function () {
     if ($('question-0').val === triviaQuestions[0].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
 $.each($("input[name='question-1']:checked"), function () {
     if ($('question-1').val === triviaQuestions[1].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
 $.each($("input[name='question-2']:checked"), function () {
     if ($('question-2').val === triviaQuestions[2].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    game.incorrect++;
+        game.incorrect++;
     }
 });
 $.each($("input[name='question-3']:checked"), function () {
     if ($('question-3').val === triviaQuestions[3].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
 $.each($("input[name='question-4']:checked"), function () {
     if ($('question-4').val === triviaQuestions[4].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
 $.each($("input[name='question-5']:checked"), function () {
     if ($('question-5').val === triviaQuestions[5].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
 $.each($("input[name='question-6']:checked"), function () {
     if ($('question-6').val === triviaQuestions[6].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
 $.each($("input[name='question-7']:checked"), function () {
     if ($('question-7').val === triviaQuestions[7].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
 $.each($("input[name='question-8']:checked"), function () {
     if ($('question-8').val === triviaQuestions[8].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
 $.each($("input[name='question-9']:checked"), function () {
     if ($('question-9').val === triviaQuestions[9].correctAnswer) {
         triviaGame.correct++;
-    } 
+    }
     else {
-    triviaGame.incorrect++;
+        triviaGame.incorrect++;
     }
 });
-
+//Callback to submitQuiz function that will clear the quiz questions
 submitQuiz();
 
-function submitQuiz () {
-    $("#submitQuizButton").on("click", function (event){
-    clearInterval("#timer");
-    $("#quizQuestions").remove();
+function submitQuiz() {
+    $("#submitQuizButton").on("click", function (event) {
+        clearInterval();
+        $("#quizQuestions").remove();
 
-    ("#quizResults").html("<h2>Out of Time!</h2>");
-    ("#quizResults").append("<h3>Guessed Correctly: " + this.correct + "</h3>");
-    ("#quizResults").append("<h3>Horribly Guessed: " + this.incorrect + "</h3>");
-    ("#quizResults").append("<h3>Didn't Try At All: " + (triviaQuestions.length - (this.incorrect + this.correct)) +"</h3>");
-});
+        ("#countDown").append("<h2>Out of Time!</h2>");
+        ("#quizResults").append("<h3>Guessed Correctly: " + this.correct + "</h3>");
+        ("#quizResults").append("<h3>Horribly Guessed: " + this.incorrect + "</h3>");
+        ("#quizResults").append("<h3>Didn't Try At All: " + (triviaQuestions.length - (this.incorrect + this.correct)) + "</h3>");
+    });
 };
-// 
+//
 // $("#submitQuizButton").on("click", function (event) {
     // event.preventDefault();
 

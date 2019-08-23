@@ -10,7 +10,7 @@ Good Luck and play as many times as you would like!🙌
 
 Game Linked Below!
 
-https://lilalekat.github.io/Trivia-Game/
+https://lilalekat.github.io/TriviaGame/
 
 This Game Was Built Using:
 

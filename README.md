@@ -1,2 +1,2 @@
-# unicorn-fairy
-A Unicorn Fairy Repository for Cloning and Pushing
+# UnicornFairy_Homework
+A Repository for Cloning and Pushing homework from the GaTechBootcamp course.
